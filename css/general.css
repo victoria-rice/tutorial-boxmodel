@@ -1,10 +1,32 @@
 @charset "utf-8";
 
-@-moz-viewport { width: device-width; scale: 1; }
-@-ms-viewport { width: device-width; scale: 1; }
-@-o-viewport { width: device-width; scale: 1; }
-@-webkit-viewport { width: device-width; scale: 1; }
+/*
+
+Shorthand:
+
+margin: 40px; all 4 sides
+margin: 40px auto; top/bottom right/left
+margin: 10px auto 0; top right/left bottom
+margin: 40px 30px 5px 10px; top right bottom left
+
+Start at the top, then continue clockwise around the box.
+
+Units of Measurement
+
+Width = %
+Height = rem
+Type = rem
+Graphic = pix (eg. border would be "graphic")
+
+/* Control the size of theview port */
+
+@-moz-viewport { width: device-width; scale: 1; } /* For firefox */
+@-ms-viewport { width: device-width; scale: 1; } /* For internet explorer */
+@-o-viewport { width: device-width; scale: 1; } /* For Opera */
+@-webkit-viewport { width: device-width; scale: 1; } /*Sarfari and Crome */
 @viewport { width: device-width; scale: 1; }
+
+/* Adjust padding so it draws on the box interior */
 
 * {
 	-moz-box-sizing: border-box;
@@ -13,15 +35,87 @@
 }
 
 html {
+    
+/* Control the zoom of the type on mobile */
 	-moz-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
     
-    font-size: 100%;
+/* Contorls the typeography size on mobile and desktop */
+    
+    font-size: 100%; /* 100% - 16px - 1rem */
+    
+    font-family: Georgia, Times, serif; 
 }
 
 img {
 	width: 100%;
     display: block;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.masthead {
+    background-color: maroon;
+     overflow: hidden; /* forces parent to wrap around its child */
+}
+
+.logo {
+    height: 4.5rem;
+    width: auto;
+    margin: .5rem 5%;  
+    
+   /* float: right; */
+   /* margin: .5rem auto */
+}
+
+article {
+    margin: 0;
+    padding: 0 5%;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 1.5rem 0;
+    font-size: 5rem;
+    line-height: 4.5re,;
+}
+
+h1 + p {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+p { 
+    line-height:1.5 rem;
+    margin: 0 0 1.5rem;
+}
+
+figure {
+    margin: 0 auto 1.5rem; /* aut incase we want smaller */
+    width: 80%; /* size can be smaller then, but not larger then %100 */    
+}
+
+figcaption {
+    font-size: .75rem;
+    margin: .5rem 0 0
+}
+
+footer {
+    background-color: brown;
+    overflow: hidden; 
+}
+
+footer p {
+    font-size: .75rem;
+    margin: .5rem 5% 5rem;
+    color: white;
+}
+
+footer a {
+    color: white;
 }
